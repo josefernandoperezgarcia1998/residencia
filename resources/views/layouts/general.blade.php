@@ -48,7 +48,7 @@ The above copyright notice and this permission notice shall be included in all c
         -->
             <div class="logo">
                 <img class="logo_centrado" src="/fotos_estaticas/logo.jpg" alt="logo" width="100" height="100">
-                <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+                <a href="{{ route('home') }}" class="simple-text logo-normal">
                     Centro Alternativo <br> Homeopático
                 </a>
             </div>
