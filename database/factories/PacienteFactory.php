@@ -32,8 +32,8 @@ class PacienteFactory extends Factory
             'email' => $this->faker->email(),
             'peso' => $this->faker->numerify('##'),
             'talla' => 'XS',
-            'sistólica' => $this->faker->numerify('##'),
-            'diastólica' => $this->faker->numerify('##'),
+            'sistolica' => $this->faker->numerify('##'),
+            'diastolica' => $this->faker->numerify('##'),
         ];
     }
 }
