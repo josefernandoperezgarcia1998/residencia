@@ -115,15 +115,14 @@ The above copyright notice and this permission notice shall be included in all c
                                         <i class="material-icons">person</i>
                                     </div>
                                     <p class="card-category">Pacientes</p>
-                                    <h3 class="card-title">*Poner count(*) de pacientes
-                                    </h3>
+                                    <h3 class="card-title">{{ $pacientes }}</h3>
                                 </div>
                                 <div class="card-footer">
                                     <div class="stats">
                                         <span class="material-icons">
                                             people_outline
                                         </span>
-                                        <a href="javascript:;">Ver lista de pacientes</a>
+                                        <a href="{{ route('pacientes.index') }}">Ver lista de pacientes</a>
                                     </div>
                                 </div>
                             </div>
