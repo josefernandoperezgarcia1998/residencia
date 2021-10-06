@@ -25,8 +25,8 @@ class CreatePacientesTable extends Migration
             $table->string('email')->unique()->nullable();
             $table->float('peso');
             $table->enum('talla', ['XS','S','M','L','XL']);
-            $table->integer('sistólica')->nullable();
-            $table->integer('diastólica')->nullable();
+            $table->integer('sistolica')->nullable();
+            $table->integer('diastolica')->nullable();
             $table->timestamps();
         });
     }
