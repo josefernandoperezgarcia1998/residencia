@@ -1,12 +1,12 @@
 <ul class="nav">
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('home') }}">
             <i class="material-icons">dashboard</i>
             <p>Tablero Principal</p>
         </a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('pacientes.index') }}">
             <i class="material-icons">person</i>
             <p>Pacientes</p>
         </a>
