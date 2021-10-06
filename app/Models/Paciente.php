@@ -16,11 +16,12 @@ class Paciente extends Model
         'a_materno',
         'edad',
         'estado_civil',
+        'telefono_casa',
         'telefono_celular',
         'email',
         'peso',
         'talla',
-        'sistólica',
-        'diastólica',
+        'sistolica',
+        'diastolica',
     ];
 }
