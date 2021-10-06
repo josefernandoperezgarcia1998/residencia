@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Paciente;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +16,11 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        Paciente::factory(20)->create();
+        DB::table('Users')->insert([
+            'name'  => 'José Fernaando Pérez García',
+            'password'  => bcrypt('123'),
+            'email'     => 'josefernandoperezgarcia98@gmail.com',
+        ]);
     }
 }
