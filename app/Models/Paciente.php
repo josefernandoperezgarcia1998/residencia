@@ -24,4 +24,14 @@ class Paciente extends Model
         'sistolica',
         'diastolica',
     ];
+
+    /* 
+        Relación hasMany 
+        de paciente => a citas
+        Un paciente tiene muchas citas
+    */
+    public function citas()
+    {
+        return $this->hasMany('App\Models\Cita','id','categoria_id');
+    }
 }
