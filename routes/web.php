@@ -21,7 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 /* Ruta al dashboard */
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 
 /* Ruta recurso al controlador de pacientes */
-Route::resource('pacientes', App\Http\Controllers\PacienteController::class)->names('pacientes');
+Route::resource('pacientes', App\Http\Controllers\PacienteController::class)->names('pacientes')->middleware('auth');
+
+/* Ruta recurso al controlador de Historial Médico */
+Route::resource('historial_medico', App\Http\Controllers\HistorialMedicoController::class)->names('historial_medico')->middleware('auth');
