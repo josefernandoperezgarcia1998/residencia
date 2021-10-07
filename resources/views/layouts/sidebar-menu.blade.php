@@ -12,7 +12,7 @@
         </a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{ route('historial_medico.index') }}">
             <i class="material-icons">content_paste</i>
             <p>Historial médico</p>
         </a>
