@@ -20,8 +20,8 @@ class CreatePacientesTable extends Migration
             $table->string('a_materno');
             $table->integer('edad');
             $table->enum('estado_civil', ['Casado/a','Divorciado/a','Viudo/a','Union_libre']);
-            $table->string('telefono_casa')->nullable();
-            $table->string('telefono_celular')->nullable();
+            $table->string('telefono_casa')->unique()->nullable();
+            $table->string('telefono_celular')->unique()->nullable();
             $table->string('email')->unique()->nullable();
             $table->float('peso');
             $table->enum('talla', ['XS','S','M','L','XL']);
