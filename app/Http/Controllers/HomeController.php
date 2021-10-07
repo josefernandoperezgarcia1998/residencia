@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paciente;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -28,4 +30,5 @@ class HomeController extends Controller
 
         return view('dashboard', compact('pacientes'));
     }
+    
 }
