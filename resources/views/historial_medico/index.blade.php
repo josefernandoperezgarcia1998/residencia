@@ -38,7 +38,12 @@ Historial Médico
                                         <tr>
                                             <td>{{$cita->id}}</td>
                                             <td>{{$cita->paciente->nombre}}</td>
-                                            <td>{{$cita->created_at}}</td>
+                                            <td>{{$cita->hora_cita}}</td>
+                                            <td>
+                                                <a href="{{ route('historial_medico.show', $cita->id) }}"
+                                                    class="btn btn-info btn-sm"><i
+                                                        class="material-icons">visibility</i></a>
+                                            </td>
                                         </tr>
                                     @empty
                                         <tr>
