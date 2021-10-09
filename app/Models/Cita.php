@@ -11,7 +11,7 @@ class Cita extends Model
 
     protected $fillable = [
         'medicamento',
-        'padicimiento',
+        'padecimiento',
         'terapia',
         'terapia_otro',
         'ozono',
@@ -19,6 +19,7 @@ class Cita extends Model
         'limpieza_oido',
         'mejoria',
         'mejoria_descripcion',
+        'sintoma_inquietud',
         'hora_cita',
         'paciente_id',
     ];
