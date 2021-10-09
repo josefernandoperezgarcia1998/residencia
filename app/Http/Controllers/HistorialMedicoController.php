@@ -7,6 +7,7 @@ use App\Models\Cita;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Throwable;
 
 class HistorialMedicoController extends Controller
 {
@@ -46,7 +47,7 @@ class HistorialMedicoController extends Controller
     public function store(Request $request)
     {
         $cita = $request->all();
-        $cita['hora_cita'] = Carbon::now()->toFormattedDateString();
+        $cita['hora_cita'] = Carbon::now()->isoFormat('LLLL');
 
         Cita::create($cita);
 
@@ -61,7 +62,18 @@ class HistorialMedicoController extends Controller
      */
     public function show($id)
     {
-        //
+        try{
+
+            $cita = Cita::findOrFail($id);
+
+            return view('historial_medico.show', compact('cita'));
+        
+        } catch (Throwable $e){
+        
+            report($e);
+
+            return response()->view('errors.404', [], 404);
+        }
     }
 
     /**
