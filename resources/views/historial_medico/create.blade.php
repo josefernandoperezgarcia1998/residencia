@@ -25,7 +25,7 @@ Crear nueva cita médica
                                         <select class="form-control" name="paciente_id" >
                                             <option value="paciente_id" selected>Seleccionar...</option>
                                             @foreach ($pacientes as $paciente)
-                                                <option value="{{$paciente->id}}">{{$paciente->nombre}} {{$paciente->a_paterno}} {{$paciente->a_materno}}</option>
+                                                <option value="{{$paciente->id}}">{{$paciente->nombre}}</option>
                                             @endforeach
                                           </select>  
                                     </div>
