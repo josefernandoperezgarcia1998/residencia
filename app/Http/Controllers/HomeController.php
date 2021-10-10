@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cita;
 use App\Models\Paciente;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -28,7 +29,9 @@ class HomeController extends Controller
     {
         $pacientes = Paciente::all()->count();
 
-        return view('dashboard', compact('pacientes'));
+        $citas = Cita::all()->count();
+
+        return view('dashboard', compact('pacientes', 'citas'));
     }
     
 }
