@@ -36,8 +36,7 @@ Listado de pacientes
                                 <tbody>
                                     @forelse ($pacientes as $paciente)
                                     <tr>
-                                        <td>{{ $paciente->nombre }} {{ $paciente->a_paterno }}
-                                            {{ $paciente->a_paterno }}</td>
+                                        <td>{{ $paciente->nombre }}</td>
                                         <td>{{ $paciente->edad }}</td>
                                         <td>{{ $paciente->telefono_celular }}</td>
                                         <td class="text-primary">

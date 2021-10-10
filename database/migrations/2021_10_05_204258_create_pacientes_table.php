@@ -16,8 +16,6 @@ class CreatePacientesTable extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('a_paterno');
-            $table->string('a_materno');
             $table->integer('edad');
             $table->enum('estado_civil', ['Casado/a','Divorciado/a','Viudo/a','Union_libre']);
             $table->string('telefono_casa')->unique()->nullable();

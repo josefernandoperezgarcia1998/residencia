@@ -20,20 +20,8 @@ Crear paciente
                             <div class="row">
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Nombre</label>
+                                        <label class="bmd-label-floating">Nombre completo</label>
                                         <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Apellido Paterno</label>
-                                        <input type="text" class="form-control" name="a_paterno" value="{{ old('a_paterno') }}" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Apellido Materno</label>
-                                        <input type="text" class="form-control" name="a_materno" value="{{ old('a_materno') }}" required>
                                     </div>
                                 </div>
                             </div>

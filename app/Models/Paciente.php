@@ -12,8 +12,6 @@ class Paciente extends Model
     /* Carga masiva de las columnas en la tabla Paciente */
     protected $fillable = [
         'nombre',
-        'a_paterno',
-        'a_materno',
         'edad',
         'estado_civil',
         'telefono_casa',

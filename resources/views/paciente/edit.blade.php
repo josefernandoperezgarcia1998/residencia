@@ -26,20 +26,6 @@ Editar paciente
                                             value="{{ old('nombre', $paciente->nombre) }}" required>
                                     </div>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Apellido Paterno</label>
-                                        <input type="text" class="form-control" name="a_paterno"
-                                            value="{{ old('a_paterno', $paciente->a_paterno) }}" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Apellido Materno</label>
-                                        <input type="text" class="form-control" name="a_materno"
-                                            value="{{ old('a_materno', $paciente->a_materno) }}" required>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-1">
