@@ -28,3 +28,5 @@ Route::resource('pacientes', App\Http\Controllers\PacienteController::class)->na
 
 /* Ruta recurso al controlador de Historial Médico */
 Route::resource('historial_medico', App\Http\Controllers\HistorialMedicoController::class)->names('historial_medico')->middleware('auth');
+
+Route::get('datatableHistorial', [App\Http\Controllers\HistorialMedicoController::class, 'datatableHistorial'])->name('datatableHistorial');
