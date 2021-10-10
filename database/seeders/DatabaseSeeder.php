@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         Paciente::factory(20)->create();
         DB::table('Users')->insert([
-            'name'  => 'José Fernaando Pérez García',
+            'name'  => 'José Fernando Pérez García',
             'password'  => bcrypt('123'),
             'email'     => 'josefernandoperezgarcia98@gmail.com',
         ]);
