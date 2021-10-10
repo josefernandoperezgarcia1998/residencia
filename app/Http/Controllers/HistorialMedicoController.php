@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Throwable;
+use Yajra\DataTables\Facades\DataTables;
 
 class HistorialMedicoController extends Controller
 {
@@ -18,8 +19,8 @@ class HistorialMedicoController extends Controller
      */
     public function index()
     {
-        $citas = Cita::all();
-        return view('historial_medico.index', compact('citas'));
+        return view('historial_medico.index');
+        
     }
 
     /**
@@ -107,7 +108,43 @@ class HistorialMedicoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $cita_seleccionada = Cita::find($id);
+
+        try{
+            $cita_seleccionada->delete();
+            return redirect()->route('historial_medico.index')->with('success', 'Cita eliminada correctamente');
+        } catch (\Illuminate\Database\QueryException $e){
+            return redirect()->route('historial_medico.index')->with('error',$e->getMessage());
+        }
+    }
+
+    public function datatableHistorial()
+    {
+        //$citas = Cita::select('id','paciente_id','padecimiento')->get();
+        //$citas = Cita::with('paciente')->select('id','paciente_id','padecimiento')->get();
+
+        /*
+        De la tabla citas, se hace un join (vaya, se obtienen los valores de ambas tablas por id)
+        Voy a leer la consulta...
+        De tabla citas y la tabla pacientes, en donde el id de pacientes es el mismo que el de paciente_id EN citas
+        dame TODOS los valores de citas, AL IGUAL que el nombre del paciente y celular
+        */
+        $citas = DB::table('citas')
+                ->join('pacientes', 'pacientes.id', '=', 'citas.paciente_id')
+                ->select('citas.*', 'pacientes.nombre as pacienteNombre',
+                        'pacientes.telefono_celular as pacienteCelular',)
+                ->get();
+
+        /*
+        Retorno con el helper datatablers mi query de "$citas" que a su vez, me va a agregar en la tabla de la vista
+        una columna llamada btn que tiene un PARTIALS a la ruta de una vista donde están mis botones
+        y todo eso se envía en jSON.
+        */
+        return datatables()
+                ->of($citas)
+                ->addColumn('btn', 'historial_medico.actions.actions')
+                ->rawColumns(['btn'])
+                ->toJson();
     }
 
 }
