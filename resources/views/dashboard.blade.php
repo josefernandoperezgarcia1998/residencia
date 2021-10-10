@@ -127,7 +127,27 @@ The above copyright notice and this permission notice shall be included in all c
                                 </div>
                             </div>
                         </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-primary card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="material-icons">description</i>
+                                    </div>
+                                    <p class="card-category">Historial Médico</p>
+                                    <h3 class="card-title">{{ $citas }}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <span class="material-icons">
+                                            description
+                                        </span>
+                                        <a href="{{ route('historial_medico.index') }}">Ver lista de historiales médicos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <!-- Contenido de la pagina -->
                 </div>
                 {{-- Fin Contenido general de la pagina --}}
