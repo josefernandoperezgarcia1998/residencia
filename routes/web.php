@@ -29,4 +29,11 @@ Route::resource('pacientes', App\Http\Controllers\PacienteController::class)->na
 /* Ruta recurso al controlador de Historial Médico */
 Route::resource('historial_medico', App\Http\Controllers\HistorialMedicoController::class)->names('historial_medico')->middleware('auth');
 
+/*Ruta para el datatable con AJAX(json) para el ver el historial en el index*/
 Route::get('datatableHistorial', [App\Http\Controllers\HistorialMedicoController::class, 'datatableHistorial'])->name('datatableHistorial');
+
+/* Ruta para ver una cita en pdf respecto al id que se seleccione en el index */
+Route::get('verCitapdf/{id}',[App\Http\Controllers\ExportarCitaPdfController::class, 'verCitaPdf'])->name('verCita.pdf');
+
+/* Ruta para descargar una cita en pdf respecto al id que se seleccione en el index */
+Route::get('exportarCitapdf/{id}',[App\Http\Controllers\ExportarCitaPdfController::class, 'exportarverCitaPdfPdf'])->name('cita.pdf-download');
