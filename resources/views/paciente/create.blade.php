@@ -106,7 +106,8 @@ Crear paciente
                                 </div>
                             </div>
                             </div>
-                            <button type="submit" class="btn btn-primary pull-right">Crear</button>
+                            <button type="submit" class="btn btn-info pull-right">Crear</button>
+                            <a href="{{ route('pacientes.index') }}" class="btn btn-primary pull-right">Volver</a>
                             <div class="clearfix"></div>
                         </form>
                     </div>

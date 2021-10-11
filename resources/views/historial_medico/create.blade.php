@@ -129,7 +129,8 @@ Crear nueva cita médica
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary pull-right">Guardar cita</button>
+                            <button type="submit" class="btn btn-info pull-right">Guardar cita</button>
+                            <a class="btn btn-primary pull-right" href="{{ route('historial_medico.index') }}">Volver</a>
                             <div class="clearfix"></div>
                         </form>
                     </div>

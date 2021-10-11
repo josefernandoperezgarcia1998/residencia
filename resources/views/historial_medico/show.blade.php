@@ -1,7 +1,7 @@
 @extends('layouts.general')
 
 @section('nombre_de_la_pagina')
-Crear nueva cita médica
+Mostrar cita médica
 @endsection
 
 @section('contenido_de_la_pagina')
@@ -11,8 +11,8 @@ Crear nueva cita médica
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title">Nueva cita</h4>
-                        <p class="card-category">Alta de una nueva cita médica</p>
+                        <h4 class="card-title">Mostrar cita</h4>
+                        <p class="card-category">Datos generales de la cita</p>
                     </div>
                     <div class="card-body">
                         <form>

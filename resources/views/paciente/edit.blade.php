@@ -111,9 +111,9 @@ Editar paciente
                                     </div>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary pull-right">Actualizar</button>
+                            <button type="submit" class="btn btn-info pull-right">Actualizar</button>
                             <a href="{{ route('pacientes.index') }}" type="submit"
-                                class="btn btn-info pull-right">Cancelar</a>
+                                class="btn btn-primary pull-right">Cancelar</a>
                             <div class="clearfix"></div>
                         </form>
                     </div>
