@@ -15,7 +15,7 @@ The above copyright notice and this permission notice shall be included in all c
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('fotos_estaticas/icon_logo_2.png') }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Centro Alternativo Homeopático
@@ -32,6 +32,11 @@ The above copyright notice and this permission notice shall be included in all c
     <style>
         .logo_centrado {
             position: relative;
+            left: 30px;
+        }
+
+        .logo_centrado_ {
+            position: relative;
             left: 80px;
         }
 
@@ -46,13 +51,14 @@ The above copyright notice and this permission notice shall be included in all c
 
         Tip 2: you can also add an image using data-image tag
         -->
-            <div class="logo">
-                <img class="logo_centrado" src="/fotos_estaticas/logo.jpg" alt="logo" width="100" height="100">
-                <a href="{{ route('home') }}" class="simple-text logo-normal">
+            <div class="logo" style="background-color: white !important;">
+                <img class="logo_centrado" src="{{ asset('fotos_estaticas/logo_v3.png') }}" alt="logo" width="200" height="200">
+                {{-- <img class="logo_centrado_" src="/fotos_estaticas/logo.jpg" alt="logo" width="100" height="100"> --}}
+{{--                 <a href="{{ route('home') }}" class="simple-text logo-normal">
                     Centro Alternativo <br> Homeopático
-                </a>
+                </a> --}}
             </div>
-            <div class="sidebar-wrapper">
+            <div class="sidebar-wrapper" style="background-color: white !important;">
                 @include('layouts.sidebar-menu')
             </div>
         </div>
