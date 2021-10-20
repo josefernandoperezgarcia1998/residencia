@@ -48,7 +48,7 @@ class PacienteController extends Controller
 
         //Se obtiene la edad del resquest 
         //y con Carbon se obtiene la edad
-        $fecha_nacimiento  =  $paciente['edad'];
+        $fecha_nacimiento  =  $paciente['fecha_nacimiento'];
         $edad = Carbon::parse($fecha_nacimiento )->age;
         $paciente['edad'] = $edad;
 
@@ -93,6 +93,12 @@ class PacienteController extends Controller
     public function update(Request $request, Paciente $paciente)
     {
         $paciente_datos = $request->all();
+
+        //Se obtiene la edad del resquest 
+        //y con Carbon se obtiene la edad
+        $fecha_nacimiento  =  $paciente_datos['fecha_nacimiento'];
+        $edad = Carbon::parse($fecha_nacimiento )->age;
+        $paciente_datos['edad'] = $edad;
         
         $paciente->update($paciente_datos);
 
