@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Paciente;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -44,7 +45,13 @@ class PacienteController extends Controller
     public function store(Request $request)
     {
         $paciente = $request->all();
-        
+
+        //Se obtiene la edad del resquest 
+        //y con Carbon se obtiene la edad
+        $fecha_nacimiento  =  $paciente['edad'];
+        $edad = Carbon::parse($fecha_nacimiento )->age;
+        $paciente['edad'] = $edad;
+
         Paciente::create($paciente);
 
         return redirect()->route('pacientes.index')->with('success', 'Paciente creado correctamente'); 
