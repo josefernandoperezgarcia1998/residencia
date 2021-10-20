@@ -26,6 +26,8 @@ class CreateCitasTable extends Migration
             $table->string('mejoria_descripcion')->nullable();
             $table->string('sintoma_inquietud')->nullable();
             $table->string('hora_cita')->nullable();
+            $table->integer('sistolica')->nullable();
+            $table->integer('diastolica')->nullable();
             $table->foreignId('paciente_id')->references('id')->on('pacientes');
             $table->timestamps();
         });

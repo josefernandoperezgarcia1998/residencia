@@ -21,6 +21,8 @@ class Cita extends Model
         'mejoria_descripcion',
         'sintoma_inquietud',
         'hora_cita',
+        'sistolica',
+        'diastolica',
         'paciente_id',
     ];
 

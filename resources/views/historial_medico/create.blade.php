@@ -129,6 +129,23 @@ Crear nueva cita médica
                                     </div>
                                 </div>
                             </div>
+                            <label for="">Presión Arterial</label>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Sistólica</label>
+                                        <input type="text" class="form-control" name="sistolica"
+                                            value="{{ old('sistolica') }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Diastólica</label>
+                                        <input type="text" class="form-control" name="diastolica"
+                                            value="{{ old('diastolica') }}" required>
+                                    </div>
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-info pull-right">Guardar cita</button>
                             <a class="btn btn-primary pull-right" href="{{ route('historial_medico.index') }}">Volver</a>
                             <div class="clearfix"></div>

@@ -96,6 +96,24 @@ Mostrar cita médica
                                     </div>
                                 </div>
                             </div>
+                            <br>
+                            <label for=""><strong>Presión Arterial</strong></label>
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Sistólica</label>
+                                        <input type="text" class="form-control" name="sistolica"
+                                            value="{{ $cita->sistolica }}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Diastólica</label>
+                                        <input type="text" class="form-control" name="diastolica"
+                                            value="{{ $cita->diastolica }}" disabled>
+                                    </div>
+                                </div>
+                            </div>
                             <a class="btn btn-primary pull-right" href="{{ route('historial_medico.index') }}">Volver</a>
                             <div class="clearfix"></div>
                         </form>
