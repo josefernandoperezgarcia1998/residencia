@@ -21,24 +21,53 @@ Crear paciente
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Nombre completo</label>
-                                        <input type="text" class="form-control" name="nombre" value="{{ old('nombre') }}" required>
+                                        <input type="text" class="form-control" name="nombre"
+                                            value="{{ old('nombre') }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Sexo</label>
+                                        <select class="form-control" name="sexo">
+                                            <option value=" " selected>Seleccionar...</option>
+                                            <option {{ old('sexo') == 'Hombre' ? 'selected' : '' }} value="Hombre">
+                                                Hombre</option>
+                                            <option {{ old('sexo') == 'Mujer' ? 'selected' : '' }} value="Mujer">Mujer
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Alergia</label>
+                                        <input type="text" class="form-control" name="alergia"
+                                            value="{{ old('alergia') }}" required>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-1">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Edad</label>
-                                        <input type="number" class="form-control" name="edad" value="{{ old('edad') }}" required min="1" max="100">
+                                        <label class="bmd-label-floating">Fecha de nacimiento (Año-Mes-Dia)</label>
+                                        <input type="text" class="form-control" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Peso</label>
-                                        <input type="number" class="form-control" name="peso" value="{{ old('peso') }}" required>
+                                        <input type="number" class="form-control" name="peso" value="{{ old('peso') }}"
+                                            required min="1">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Estatura</label>
+                                        <input type="text" class="form-control" name="estatura"
+                                            value="{{ old('estatura') }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Talla</label>
                                         <select class="form-control" name="talla">
@@ -51,7 +80,7 @@ Crear paciente
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Estado civil</label>
                                         <select class="form-control" name="estado_civil">
@@ -62,23 +91,32 @@ Crear paciente
                                                 value="Divorciado/a">Divorciado/a</option>
                                             <option {{ old('estado_civil') == 'Viudo/a' ? 'selected' : '' }}
                                                 value="Viudo/a">Viudo/a</option>
-                                            <option {{ old('estado_civil') == 'Union_libre' ? 'selected' : '' }}
-                                                value="Union_libre">Union_libre</option>
+                                            <option {{ old('estado_civil') == 'Soltero/a' ? 'selected' : '' }}
+                                                value="Soltero/a">Soltero/a</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Teléfono de casa</label>
-                                        <input type="text" class="form-control" name="telefono_casa" value="{{ old('telefono_casa') }}" required>
+                                        <label class="bmd-label-floating">Domicilio</label>
+                                        <input type="text" class="form-control" name="domicilio"
+                                            value="{{ old('domicilio') }}" required>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Teléfono de casa</label>
+                                        <input type="text" class="form-control" name="telefono_casa"
+                                            value="{{ old('telefono_casa') }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Teléfono celular</label>
-                                        <input type="text" class="form-control" name="telefono_celular" value="{{ old('telefono_celular') }}" required>
+                                        <input type="text" class="form-control" name="telefono_celular"
+                                            value="{{ old('telefono_celular') }}" required>
                                     </div>
                                 </div>
                             </div>
@@ -86,25 +124,10 @@ Crear paciente
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Correo electrónico</label>
-                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                        <input type="email" class="form-control" name="email" value="{{ old('email') }}"
+                                            required>
                                     </div>
                                 </div>
-                            </div>
-                            <br>
-                            <label for=""><strong>Presión Arterial</strong></label>
-                            <div class="row">
-                              <div class="col-md-1">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Sistólica</label>
-                                    <input type="text" class="form-control" name="sistolica" value="{{ old('sistolica') }}" required>
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Diastólica</label>
-                                    <input type="text" class="form-control" name="diastolica" value="{{ old('diastolica') }}" required>
-                                </div>
-                            </div>
                             </div>
                             <button type="submit" class="btn btn-info pull-right">Crear</button>
                             <a href="{{ route('pacientes.index') }}" class="btn btn-primary pull-right">Volver</a>

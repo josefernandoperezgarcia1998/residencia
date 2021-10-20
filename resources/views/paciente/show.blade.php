@@ -20,7 +20,22 @@ Mostrar paciente
                                 <div class="col-md-5">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Nombre completo</label>
-                                        <input type="text" class="form-control" name="nombre" value="{{ $paciente->nombre }}" disabled>
+                                        <input type="text" class="form-control" name="nombre"
+                                            value="{{ $paciente->nombre }}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Sexo</label>
+                                        <input type="text" class="form-control" name="sexo"
+                                            value="{{ $paciente->sexo }}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Alergia</label>
+                                        <input type="text" class="form-control" name="alergia"
+                                            value="{{ $paciente->alergia }}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -28,39 +43,59 @@ Mostrar paciente
                                 <div class="col-md-1">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Edad</label>
-                                        <input type="number" class="form-control" name="edad" value="{{ $paciente->edad }}" disabled required min="1" max="100">
+                                        <input type="number" class="form-control" name="edad"
+                                            value="{{ $paciente->edad }}" disabled required>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Peso</label>
-                                        <input type="number" class="form-control" name="peso" value="{{ $paciente->peso }}" disabled> 
+                                        <input type="number" class="form-control" name="peso"
+                                            value="{{ $paciente->peso }}" disabled>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Estatura</label>
+                                        <input type="number" class="form-control" name="estatura"
+                                            value="{{ $paciente->estatura }}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Talla</label>
-                                        <input type="text" class="form-control" name="talla" value="{{ $paciente->talla }}" disabled> 
+                                        <input type="text" class="form-control" name="talla"
+                                            value="{{ $paciente->talla }}" disabled>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Estado civil</label>
-                                        <input type="text" class="form-control" name="estado_civil" value="{{ $paciente->estado_civil }}" disabled> 
+                                        <input type="text" class="form-control" name="estado_civil"
+                                            value="{{ $paciente->estado_civil }}" disabled>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-5">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Teléfono de casa</label>
-                                        <input type="text" class="form-control" name="telefono_casa" value="{{ $paciente->telefono_casa }}" disabled> 
+                                        <label class="bmd-label-floating">Domicilio</label>
+                                        <input type="text" class="form-control" name="domicilio"
+                                            value="{{ $paciente->domicilio }}" disabled>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Teléfono de casa</label>
+                                        <input type="text" class="form-control" name="telefono_casa"
+                                            value="{{ $paciente->telefono_casa }}" disabled>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Teléfono celular</label>
-                                        <input type="text" class="form-control" name="telefono_celular" value="{{ $paciente->telefono_celular }}" disabled> 
+                                        <input type="text" class="form-control" name="telefono_celular"
+                                            value="{{ $paciente->telefono_celular }}" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -68,27 +103,13 @@ Mostrar paciente
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Correo electrónico</label>
-                                        <input type="email" class="form-control" name="email" value="{{ $paciente->email }}" disabled> 
+                                        <input type="email" class="form-control" name="email"
+                                            value="{{ $paciente->email }}" disabled>
                                     </div>
                                 </div>
                             </div>
-                            <br>
-                            <label for=""><strong>Presión Arterial</strong></label>
-                            <div class="row">
-                              <div class="col-md-1">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Sistólica</label>
-                                    <input type="text" class="form-control" name="sistolica" value="{{ $paciente->sistolica }}" disabled> 
-                                </div>
-                            </div>
-                            <div class="col-md-2">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Diastólica</label>
-                                    <input type="text" class="form-control" name="diastolica" value="{{ $paciente->diastolica }}" disabled> 
-                                </div>
-                            </div>
-                            </div>
-                            <a href="{{ route('pacientes.edit', $paciente->id) }}" class="btn btn-info pull-right">Editar</a>
+                            <a href="{{ route('pacientes.edit', $paciente->id) }}"
+                                class="btn btn-info pull-right">Editar</a>
                             <a href="{{ route('pacientes.index') }}" class="btn btn-primary pull-right">Volver</a>
                             <div class="clearfix"></div>
                         </form>

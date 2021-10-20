@@ -26,23 +26,47 @@ Editar paciente
                                             value="{{ old('nombre', $paciente->nombre) }}" required>
                                     </div>
                                 </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Sexo</label>
+                                        <select class="form-control" name="sexo">
+                                            <option value=" " selected>Seleccionar...</option>
+                                            <option {{ old('sexo') == 'Hombre' ? 'selected' : ($paciente->sexo == 'Hombre' ? 'selected' : '') }} value="Hombre">Hombre</option>
+                                            <option {{ old('sexo') == 'Mujer' ? 'selected' : ($paciente->sexo == 'Mujer' ? 'selected' : '') }} value="Mujer">Mujer</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Alergia</label>
+                                        <input type="text" class="form-control" name="alergia"
+                                            value="{{ old('alergia', $paciente->alergia) }}" required>
+                                    </div>
+                                </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-1">
+                                <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Edad</label>
-                                        <input type="number" class="form-control" name="edad"
-                                            value="{{ old('edad', $paciente->edad) }}" required min="1" max="100">
+                                        <label class="bmd-label-floating">Fecha de nacimiento (Año-Mes-Dia)</label>
+                                        <input type="text" class="form-control" name="fecha_nacimiento" value="{{ old('fecha_nacimiento', $paciente->fecha_nacimiento) }}"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Peso</label>
                                         <input type="number" class="form-control" name="peso"
-                                            value="{{ old('peso', $paciente->peso) }}" required>
+                                            value="{{ old('peso', $paciente->peso) }}" required min="1">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Estatura</label>
+                                        <input type="text" class="form-control" name="estatura"
+                                            value="{{ old('estatura', $paciente->estatura) }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Talla</label>
                                         <select class="form-control" name="talla">
@@ -55,7 +79,7 @@ Editar paciente
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Estado civil</label>
                                         <select class="form-control" name="estado_civil">
@@ -63,20 +87,27 @@ Editar paciente
                                             <option {{ old('estado_civil') == 'Casado/a' ? 'selected' : ($paciente->estado_civil == 'Casado/a' ? 'selected' : '') }} value="Casado/a">Casado/a</option>
                                             <option {{ old('estado_civil') == 'Divorciado/a' ? 'selected' : ($paciente->estado_civil == 'Divorciado/a' ? 'selected' : '') }} value="Divorciado/a">Divorciado/a</option>
                                             <option {{ old('estado_civil') == 'Viudo/a' ? 'selected' : ($paciente->estado_civil == 'Viudo/a' ? 'selected' : '') }} value="Viudo/a">Viudo/a</option>
-                                            <option {{ old('estado_civil') == 'Union_libre' ? 'selected' : ($paciente->estado_civil == 'Union_libre' ? 'selected' : '') }} value="Union_libre">Union_libre</option>
+                                            <option {{ old('estado_civil') == 'Soltero/a' ? 'selected' : ($paciente->estado_civil == 'Soltero/a' ? 'selected' : '') }} value="Soltero/a">Soltero/a</option>
                                         </select>
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Domicilio</label>
+                                        <input type="text" class="form-control" name="domicilio"
+                                            value="{{ old('domicilio', $paciente->domicilio) }}" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Teléfono de casa</label>
                                         <input type="text" class="form-control" name="telefono_casa"
                                             value="{{ old('telefono_casa', $paciente->telefono_casa) }}" required>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-2">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Teléfono celular</label>
                                         <input type="text" class="form-control" name="telefono_celular"
@@ -90,24 +121,6 @@ Editar paciente
                                         <label class="bmd-label-floating">Correo electrónico</label>
                                         <input type="email" class="form-control" name="email"
                                             value="{{ old('email', $paciente->email) }}" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <br>
-                            <label for=""><strong>Presión Arterial</strong></label>
-                            <div class="row">
-                                <div class="col-md-1">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Sistólica</label>
-                                        <input type="text" class="form-control" name="sistolica"
-                                            value="{{ old('sistolica', $paciente->sistolica) }}" required>
-                                    </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Diastólica</label>
-                                        <input type="text" class="form-control" name="diastolica"
-                                            value="{{ old('diastolica', $paciente->diastolica) }}" required>
                                     </div>
                                 </div>
                             </div>
