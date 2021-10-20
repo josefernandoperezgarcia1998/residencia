@@ -102,13 +102,34 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_login/css/util.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('assets_login/css/main.css') }}">
     <!--===============================================================================================-->
+    <style>
+        .menu{
+            position: absolute;
+            top: 20px;
+            right: 75px;
+        }
+    </style>
 </head>
 
 <body style="background-color: rgb(238,238,238);">
 
     <div class="limiter">
         <div class="container-login100">
+            @if (Route::has('login'))
+                <div class="menu">
+                @auth
+                    <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Inicio</a>
+                @else
+                    <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Iniciar sesión</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Registrar</a>
+                    @endif
+                @endauth
+                </div>
+            @endif
             <div class="wrap-login100">
+
                 <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                     @csrf
 
