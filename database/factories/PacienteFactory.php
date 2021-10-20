@@ -23,6 +23,7 @@ class PacienteFactory extends Factory
     {
         return [
             'nombre' => $this->faker->name(),
+            'fecha_nacimiento' => $this->faker->numerify("####-##-##"),
             'edad' => $this->faker->numerify('##'),
             'estado_civil' => $this->faker->randomElement(['Casado/a','Divorciado/a','Viudo/a','Soltero/a']),
             'sexo' => $this->faker->randomElement(['Hombre','Mujer']),
