@@ -28,15 +28,16 @@
             height: 80px;
         }
 
-        .titulo{
+        .titulo {
             text-transform: uppercase;
         }
+
         .fuentes {
             font-family: 'Mulish', sans-serif;
         }
 
         .padre {
-            background-color: rgb(254,254,254);
+            background-color: rgb(254, 254, 254);
             margin: 1rem;
             padding: 1rem;
             border: 2px solid #ccc;
@@ -49,7 +50,7 @@
         th {
             border: none;
             font-size: 90%;
-            background-color: rgb(254,254,254);
+            background-color: rgb(254, 254, 254);
             font-weight: normal;
 
         }
@@ -58,22 +59,22 @@
             background-color: white;
         }
 
-        div > .info{
+        div>.info {
             font-size: 12px;
         }
-        
-        .sugerencia{
+
+        .sugerencia {
             position: absolute;
             right: 503px;
             font-weight: bold;
         }
 
-        .dato_general{
+        .dato_general {
             position: absolute;
             left: 35px;
             bottom: 450px;
         }
-        
+
     </style>
 </head>
 
@@ -101,13 +102,16 @@
                     <th><strong>Estatura:</strong> {{$cita->paciente->estatura}}.</th>
                 </tr>
                 <tr>
-                    <th>Peso: {{$cita->paciente->peso}} kg.</th>
+                    <th><strong>Peso:</strong> {{$cita->paciente->peso}} kg.</th>
                 </tr>
-                
-{{--                 <tr>
+                <tr>
+                    <th><strong>Alergias:</strong> {{$cita->paciente->alergia}}.</th>
+                </tr>
+
+                {{--                 <tr>
                     
                     <td>{{$cita->padecimiento}}</td>
-                    <td>{{$cita->hora_cita}}</td>
+                <td>{{$cita->hora_cita}}</td>
                 </tr> --}}
                 @endforeach
             </table>
