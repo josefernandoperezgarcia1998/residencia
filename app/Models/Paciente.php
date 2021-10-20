@@ -14,13 +14,15 @@ class Paciente extends Model
         'nombre',
         'edad',
         'estado_civil',
+        'sexo',
+        'estatura',
+        'domicilio',
+        'alergia',
         'telefono_casa',
         'telefono_celular',
         'email',
         'peso',
         'talla',
-        'sistolica',
-        'diastolica',
     ];
 
     /* 
