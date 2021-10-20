@@ -12,6 +12,7 @@ class Paciente extends Model
     /* Carga masiva de las columnas en la tabla Paciente */
     protected $fillable = [
         'nombre',
+        'fecha_nacimiento',
         'edad',
         'estado_civil',
         'sexo',
