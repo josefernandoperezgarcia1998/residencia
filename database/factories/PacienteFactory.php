@@ -24,14 +24,16 @@ class PacienteFactory extends Factory
         return [
             'nombre' => $this->faker->name(),
             'edad' => $this->faker->numerify('##'),
-            'estado_civil' => 'Casado/a',
+            'estado_civil' => $this->faker->randomElement(['Casado/a','Divorciado/a','Viudo/a','Soltero/a']),
+            'sexo' => $this->faker->randomElement(['Hombre','Mujer']),
+            'estatura' => $this->faker->numerify('##'),
+            'domicilio' => $this->faker->address(),
+            'talla' => $this->faker->randomElement(['XS','S','M','L','XL']),
             'telefono_casa' => $this->faker->numerify('###-###-####'),
             'telefono_celular' => $this->faker->numerify('###-###-####'),
             'email' => $this->faker->email(),
+            'alergia' => $this->faker->word(),
             'peso' => $this->faker->numerify('##'),
-            'talla' => 'XS',
-            'sistolica' => $this->faker->numerify('##'),
-            'diastolica' => $this->faker->numerify('##'),
         ];
     }
 }
