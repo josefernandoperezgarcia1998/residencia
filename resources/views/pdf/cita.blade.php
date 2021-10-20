@@ -14,7 +14,7 @@
         th,
         td {
             text-align: left;
-            padding: 8px;
+            padding: 3px;
         }
 
         tr:nth-child(even) {
@@ -36,7 +36,7 @@
         }
 
         .padre {
-            background-color: #fafafa;
+            background-color: rgb(254,254,254);
             margin: 1rem;
             padding: 1rem;
             border: 2px solid #ccc;
@@ -48,6 +48,10 @@
         td,
         th {
             border: none;
+            font-size: 90%;
+            background-color: rgb(254,254,254);
+            font-weight: normal;
+
         }
 
         td {
@@ -63,6 +67,13 @@
             right: 503px;
             font-weight: bold;
         }
+
+        .dato_general{
+            position: absolute;
+            left: 35px;
+            bottom: 450px;
+        }
+        
     </style>
 </head>
 
@@ -76,18 +87,28 @@
         <div class="info">Tuxtla Gutiérrez, Chiapas</div>
         <br><br>
         <div style="overflow-x:auto;">
+            <h4 class="dato_general">DATOS GENERALES DEL PACIENTE</h4>
+            <br>
             <table class="bordesFuera">
-                <tr>
-                    <th>Nombre del paciente</th>
-                    <th>Padecimiento</th>
-                    <th>Fecha y hora de la cita</th>
-                </tr>
                 @foreach ($cita_data as $cita)
                 <tr>
-                    <td>{{$cita->paciente->nombre}}</td>
+                    <th><strong>Nombre del paciente:</strong> {{$cita->paciente->nombre}}.</th>
+                </tr>
+                <tr>
+                    <th><strong>Edad:</strong> {{$cita->paciente->edad}}.</th>
+                </tr>
+                <tr>
+                    <th><strong>Estatura:</strong> {{$cita->paciente->estatura}}.</th>
+                </tr>
+                <tr>
+                    <th>Peso: {{$cita->paciente->peso}} kg.</th>
+                </tr>
+                
+{{--                 <tr>
+                    
                     <td>{{$cita->padecimiento}}</td>
                     <td>{{$cita->hora_cita}}</td>
-                </tr>
+                </tr> --}}
                 @endforeach
             </table>
             <br>
