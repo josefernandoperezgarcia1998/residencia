@@ -119,8 +119,8 @@ The above copyright notice and this permission notice shall be included in all c
                         <script>
                             document.write(new Date().getFullYear())
 
-                        </script>, Hecho con <i class="material-icons">favorite</i> por
-                        <a href="" target="_blank">JFPG.</a>
+                        </script>, 
+                        <a href="{{ route('home') }}">Centro Alternativo Homeopático.</a>
                     </div>
                 </div>
             </footer>
