@@ -32,12 +32,7 @@ The above copyright notice and this permission notice shall be included in all c
     <style>
         .logo_centrado {
             position: relative;
-            left: 30px;
-        }
-
-        .logo_centrado_ {
-            position: relative;
-            left: 80px;
+            left: 55px;
         }
 
     </style>
@@ -52,7 +47,8 @@ The above copyright notice and this permission notice shall be included in all c
         Tip 2: you can also add an image using data-image tag
         -->
             <div class="logo" style="background-color: white !important;">
-                <img class="logo_centrado" src="{{ asset('fotos_estaticas/logo_v3.png') }}" alt="logo" width="200" height="200">
+                <a href="{{ route('home') }}"> <img class="logo_centrado" src="{{ asset('fotos_estaticas/logo_oficial.jpg') }}" alt="logo" width="150" height="150"></a>
+                <a href="{{ route('home') }}" class="simple-text logo-normal">Centro Alternativo<br>Homeopático</a>
             </div>
             <div class="sidebar-wrapper">
                 @include('layouts.sidebar-menu')
