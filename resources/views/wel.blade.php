@@ -29,6 +29,9 @@
     <link rel="stylesheet" href="{{ asset('assets_landing_page/css/main.css') }}">
     <!-- Custom stylesheet -->
 
+    {{-- Link de bootstrap para AJAX --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" />
+
     <style>
         html {
             scroll-behavior: smooth !important;
@@ -549,43 +552,45 @@
                                     <div class="section-heading-7 text-center">
                                         <h2>Contáctanos</h2>
                                     </div>
-                                    <form action="">
+                                    <form id="contact-frm" action="{{ route('contacto.store') }}" method="POST" enctype="multipart/form-data">
+                                        <input type="hidden" id="token" value="{{ @csrf_token() }}">
                                         <div class="container">
                                             <div class="row">
-                                                
                                             </div>
                                             <div class="row">
+                                                <div id="res" ></div>
+                                                <br>
                                                 <h4 style="text-align:center contacto4">Completa los siguientes campos
                                                 </h4>
                                             </div>
                                             <div class="row input-container">
                                                 <div class="col-xs-12">
                                                     <div class="styled-input wide">
-                                                        <input type="text" required name="nombre" />
+                                                        <input type="text" required name="nombre_completo" id="name"/>
                                                         <label>Nombre completo</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-12">
                                                     <div class="styled-input">
-                                                        <input type="text" required name="correo" />
+                                                        <input type="text" required name="email" id="email"/>
                                                         <label>Correo electrónico</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-6 col-sm-12">
                                                     <div class="styled-input" style="float:right;">
-                                                        <input type="text" required name="telefono" />
+                                                        <input type="text" required name="numero" id="number" />
                                                         <label>Número de teléfono</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
                                                     <div class="styled-input wide">
-                                                        <textarea required name="mensaje"></textarea>
+                                                        <textarea required name="mensaje" id="msg"></textarea>
                                                         <label>Mensaje</label>
                                                     </div>
                                                 </div>
                                                 <div class="col-xs-12">
-                                                    <div class="btn-lrg submit-btn"><button
-                                                            style="background: none; border: none; color: white;">Enviar</button>
+                                                    <div class="btn-lrg submit-btn">
+                                                            <button id="btn" style="background: none; border: none; color: white;">Enviar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -642,6 +647,45 @@
     <script src="{{ asset('assets_landing_page/plugins/menu/menu.js') }}"></script>
     <!-- Activation Script -->
     <script src="{{ asset('assets_landing_page/js/custom.js') }}"></script>
+
+    {{-- Scripts para ajax --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js" integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js" integrity="sha512-XKa9Hemdy1Ui3KSGgJdgMyYlUg1gM+QhL6cnlyTe2qzMCYm4nAZ1PsVerQzTTXzonUR+dmswHqgJPuwCq1MaAg==" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#contact-frm").submit(function(e){
+                e.preventDefault();
+                let url = $(this).attr('action');
+                $("#btn").attr('disabled', true);
+                $.post(url, 
+                {
+                    '_token': $("#token").val(),
+                    email: $("#email").val(),
+                    number: $("#number").val(),
+                    name: $("#name").val(),
+                    message: $("#msg").val()
+                }, 
+                function (response) {
+                    if(response.code == 400){
+                        $("#btn").attr('disabled', false);
+                        let error = '<div class="alert alert-danger">'+response.msg+'</div>';
+                        $("#res").html(error);
+                    }else if(response.code == 200){
+                        $("#btn").attr('disabled', false);
+                        let success = '<div class="alert alert-success">'+response.msg+'</div>';
+                        $("#res").html(success);
+                        setTimeout(function() {
+                            $("#res").fadeOut(1500);
+                        },10000);
+                        document.getElementById("contact-frm").reset();
+                    }
+                });
+                
+                
+            })
+        })
+    </script>
+    {{-- Scripts para ajax --}}
 </body>
 
 </html>
