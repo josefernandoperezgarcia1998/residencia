@@ -105,6 +105,12 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="content">
                 <!-- Contenido de la pagina -->
                 <div class="container-fluid">
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <strong>Bienvenido {{ Auth::user()->name }}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
@@ -129,7 +135,7 @@ The above copyright notice and this permission notice shall be included in all c
                             <div class="card card-stats">
                                 <div class="card-header card-header-primary card-header-icon">
                                     <div class="card-icon">
-                                        <i class="material-icons">description</i>
+                                        <i class="material-icons">content_paste</i>
                                     </div>
                                     <p class="card-category">Historial Médico</p>
                                     <h3 class="card-title">{{ $citas }}</h3>
@@ -140,6 +146,90 @@ The above copyright notice and this permission notice shall be included in all c
                                             description
                                         </span>
                                         <a href="{{ route('historial_medico.index') }}">Ver lista de historiales médicos</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-info card-header-icon">
+                                    <div class="card-icon">
+                                        <i class="material-icons">group</i>
+                                    </div>
+                                    <p class="card-category">Personal</p>
+                                    <h3 class="card-title">{{ $personal }}</h3>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="stats">
+                                        <span class="material-icons">
+                                            group
+                                        </span>
+                                        <a href="{{-- {{ route('personal.index') }} --}}">Ver lista de personal</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="container-fluid">
+                        <div class="row">
+                            {{-- Poner aqui card de preguntas --}}
+                            <div class="col-md-10">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-info card-header-icon">
+                                        <div class="card-icon" style="background-image: linear-gradient(
+                                            195deg,#ec407a,#d81b60);">
+                                            <i class="material-icons">question_answer</i>
+                                        </div>
+                                        <p class="card-category">Mensajes del formulario de contacto</p>
+                                        <h3 class="card-title">{{ $contacto_contador }}</h3>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class="text-primary">
+                                                    <th>Nombre</th>
+                                                    <th>Mensaje</th>
+                                                    <th>Estado</th>
+                                                    <th>Fecha del mensaje</th>
+                                                </thead>
+                                                <tbody>
+                                                    @forelse ($contactos as $contacto)
+                                                    <tr>
+                                                        <td>{{ $contacto->nombre_completo }}</td>
+                                                        <td>{{ $contacto->mensaje }}</td>
+                                                        <td>
+                                                            @if (is_null($contacto->concesionado))
+                                                                {{--Si el estado de concesionado es NULL sale pendiente  --}}
+                                                                <span class="badge badge-warning"><strong>Pendiente</strong></span>
+                                                            @else
+                                                                @if ($contacto->concesionado==0)
+                                                                    {{--Si el estado de concesionado es 0 sale cancelado  --}}
+                                                                    <span class="badge badge-danger"><strong>Cancelado</strong></span>
+                                                                @else
+                                                                    {{-- Si el estado de concesionado es 1 sale que ya fue revisado --}}
+                                                                    <span class="badge badge-success"><strong>Revisado</strong></span>
+                                                                @endif
+                                                            @endif
+                                                        </td>
+                                                        <td>{{ $contacto->hora_cita }}</td>
+                                                    </tr>
+                                                    @empty
+                                                        <tr>
+                                                            <td class="text-primary">No hay registros</td>
+                                                        </tr>
+                                                    @endforelse
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                            <span class="material-icons">
+                                                question_answer
+                                            </span>
+                                            <a href="{{ route('contacto.index') }}">Ver lista de mensajes</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
