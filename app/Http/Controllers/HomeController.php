@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cita;
+use App\Models\Contacto;
 use App\Models\Paciente;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -30,8 +31,14 @@ class HomeController extends Controller
         $pacientes = Paciente::all()->count();
 
         $citas = Cita::all()->count();
+        
+        $personal = User::all()->count();
 
-        return view('dashboard', compact('pacientes', 'citas'));
+        $contactos = Contacto::limit(6)->latest()->get();
+
+        $contacto_contador = Contacto::all()->count();
+
+        return view('dashboard', compact('pacientes', 'citas', 'personal', 'contactos', 'contacto_contador'));
     }
     
 }
