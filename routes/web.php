@@ -3,16 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
 
 Route::get('/', function () {
     return view('wel');
@@ -37,3 +27,8 @@ Route::get('verCitapdf/{id}',[App\Http\Controllers\ExportarCitaPdfController::cl
 
 /* Ruta para descargar una cita en pdf respecto al id que se seleccione en el index */
 Route::get('exportarCitapdf/{id}',[App\Http\Controllers\ExportarCitaPdfController::class, 'exportarverCitaPdfPdf'])->name('cita.pdf-download');
+
+/* Ruta recurso para el formulario de contacto*/
+Route::resource('contacto', App\Http\Controllers\ContactoController::class)->names('contacto');
+Route::put('contacto/mensaje/{id}', [App\Http\Controllers\ContactoController::class, 'revisado'])->name('contacto.revisado');
+Route::put('contacto/mensaje/{id}/cancelado', [App\Http\Controllers\ContactoController::class, 'cancelado'])->name('contacto.cancelado');
