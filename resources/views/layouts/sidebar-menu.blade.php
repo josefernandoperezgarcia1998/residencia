@@ -17,13 +17,19 @@
             <p>Historial médico</p>
         </a>
     </li>
-{{-- 
     <li class="nav-item ">
         <a class="nav-link" href="./typography.html">
-            <i class="material-icons">library_books</i>
-            <p>Typography</p>
+            <i class="material-icons">group</i>
+            <p>Personal</p>
         </a>
     </li>
+    <li class="nav-item ">
+        <a class="nav-link" href="{{ route('contacto.index') }}">
+            <i class="material-icons">question_answer</i>
+            <p>Contacto</p>
+        </a>
+    </li>
+{{-- 
     <li class="nav-item ">
         <a class="nav-link" href="./icons.html">
             <i class="material-icons">bubble_chart</i>
