@@ -100,7 +100,6 @@ class UsuarioController extends Controller
                 /*Se hashea la contraseña */
                 $valores['password'] = Hash::make( $valores['password'] );
                 $valores['rol'] = 'Personal';
-                dd($valores);
         
                 /* Se llena el modelo con los datos en caso de que todo esté correcto */
                 $registro = new User();
