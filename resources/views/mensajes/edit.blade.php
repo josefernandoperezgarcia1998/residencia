@@ -123,8 +123,7 @@ Editar mensaje
                                 </div>
                             </div>
                             <div class="botones-form1">
-                                    <a href="{{ route('contacto.index') }}" type="submit"
-                                    class="btn btn-primary pull-right">Regresar</a>
+                                    
                                 {{-- If que contiene el gate para que se muestre o no el boton de revisar --}}
                                 @if ($mensaje->concesionado==0)
                                     @cannot('revisar', $mensaje)
@@ -133,6 +132,8 @@ Editar mensaje
                                 @else
 
                                 @endif
+                                <a href="{{ route('contacto.index') }}" type="submit"
+                                    class="btn btn-primary pull-right">Regresar</a>
                             </div>
                             <div class="clearfix"></div>
                         </form>
