@@ -80,8 +80,8 @@ The above copyright notice and this permission notice shall be included in all c
                                     </p>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                                    <a class="dropdown-item" href="#">Perfil</a>
-                                    <div class="dropdown-divider"></div>
+                                    {{-- <a class="dropdown-item" href="{{ route('ver.perfil') }}">Perfil</a> --}}
+                                    {{-- <div class="dropdown-divider"></div> --}}
 
                                     {{-- Cerrar sesión del usuario --}}
                                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -164,7 +164,7 @@ The above copyright notice and this permission notice shall be included in all c
                                         <span class="material-icons">
                                             group
                                         </span>
-                                        <a href="{{-- {{ route('personal.index') }} --}}">Ver lista de personal</a>
+                                        <a href="{{ route('usuarios.index') }}">Ver lista de personal</a>
                                     </div>
                                 </div>
                             </div>
