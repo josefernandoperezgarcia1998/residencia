@@ -18,7 +18,7 @@
         </a>
     </li>
     <li class="nav-item ">
-        <a class="nav-link" href="./typography.html">
+        <a class="nav-link" href="{{ route('usuarios.index') }}"">
             <i class="material-icons">group</i>
             <p>Personal</p>
         </a>
