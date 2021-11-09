@@ -279,34 +279,59 @@
                                 <div class="mobile-menu-close">&times;</div>
                             </div>
                             <ul class="site-menu-main">
-                                <li class="nav-item nav-item-has-children">
-                                    {{-- <a href="#" class="nav-link-item drop-trigger">Dropdowns <i
-                                            class="fas fa-angle-down"></i>
-                                    </a>
-                                    <ul class="sub-menu" id="submenu-9">
-                                        <li class="sub-menu--item">
-                                            <a href="#">Dropdown 01</a>
+                                @if (Route::has('login'))
+                                    @auth
+                                        <li class="nav-item nav-item-has-children">
+                                            {{-- <a href="#" class="nav-link-item drop-trigger">Dropdowns <i
+                                                    class="fas fa-angle-down"></i>
+                                            </a>
+                                            <ul class="sub-menu" id="submenu-9">
+                                                <li class="sub-menu--item">
+                                                    <a href="#">Dropdown 01</a>
+                                                </li>
+                                                <li class="sub-menu--item">
+                                                    <a href="#">Dropdown 02</a>
+                                                </li>
+                                                <li class="sub-menu--item">
+                                                    <a href="#">Dropdown 03</a>
+                                                </li>
+                                                <li class="sub-menu--item">
+                                                    <a href="#">Dropdown 04</a>
+                                                </li>
+                                            </ul> --}}
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="#">Dropdown 02</a>
+                                        <li class="nav-item">
+                                            <a href="#inicio" class="nav-link-item">Inicio</a>
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="#">Dropdown 03</a>
+                                        <li class="nav-item">
+                                            <a href="#servicios" class="nav-link-item">Servicios</a>
                                         </li>
-                                        <li class="sub-menu--item">
-                                            <a href="#">Dropdown 04</a>
+                                        <li class="nav-item">
+                                            <a href="#contacto" class="nav-link-item">Contacto</a>
                                         </li>
-                                    </ul> --}}
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#inicio" class="nav-link-item">Inicio</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#servicios" class="nav-link-item">Servicios</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="#contacto" class="nav-link-item">Contacto</a>
-                                </li>
+                                        <li class="nav-item">
+                                            <a href="{{ url('/home') }}" class="nav-link-item">Tablero</a>
+                                        </li>
+                                    @else
+                                        <li class="nav-item">
+                                            <a href="#inicio" class="nav-link-item">Inicio</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#servicios" class="nav-link-item">Servicios</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="#contacto" class="nav-link-item">Contacto</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="{{ route('login') }}" class="nav-link-item">Iniciar Sesión</a>
+                                        </li>
+                                        @if (Route::has('register'))
+                                        <li class="nav-item">
+                                            <a href="{{ route('register') }}" class="nav-link-item">Registrar</a>
+                                        </li>
+                                        @endif
+                                    @endauth
+                                @endif
                             </ul>
                         </nav>
                     </div>
