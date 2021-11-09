@@ -16,5 +16,6 @@ return [
     'failed' => 'Correo y/o contraseña no coinciden con nuestros registros.',
     'password' => 'La contraseña ingresada es incorrecta.',
     'throttle' => 'Demasiados intentos de acceso. Por favor inténtelo de nuevo en :seconds segundos.',
+    'mensaje_error_activo' => 'Tu cuenta no está activa'
 
 ];
