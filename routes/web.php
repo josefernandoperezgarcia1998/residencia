@@ -1,5 +1,11 @@
 <?php
 
+
+/* 
+Al final de todo el proyecto proteger todas las rutas con el middleware: auth
+*/
+
+
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -9,6 +15,9 @@ Route::get('/', function () {
 })->name('welcome');
 
 Auth::routes();
+
+/* Ruta post para autenticar el formulario cuando uno inicie sesión */
+Route::post('validar', [App\Http\Controllers\UsuarioController::class, 'autenticar'])->name('autenticar');
 
 /* Ruta al dashboard */
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
@@ -32,3 +41,9 @@ Route::get('exportarCitapdf/{id}',[App\Http\Controllers\ExportarCitaPdfControlle
 Route::resource('contacto', App\Http\Controllers\ContactoController::class)->names('contacto');
 Route::put('contacto/mensaje/{id}', [App\Http\Controllers\ContactoController::class, 'revisado'])->name('contacto.revisado');
 Route::put('contacto/mensaje/{id}/cancelado', [App\Http\Controllers\ContactoController::class, 'cancelado'])->name('contacto.cancelado');
+
+/* ruta recurso para crud de usuarios-personal del sistema */
+Route::resource('usuarios', App\Http\Controllers\UsuarioController::class)->names('usuarios')->middleware('auth');
+
+/* Ruta para verificar con AJAX si un correo ya existe ó no en el sistema */
+Route::post('/register/check', [App\Http\Controllers\UsuarioController::class, 'check'])->name('register.check');
