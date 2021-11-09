@@ -20,7 +20,16 @@ class DatabaseSeeder extends Seeder
         DB::table('Users')->insert([
             'name'  => 'José Fernando Pérez García',
             'password'  => bcrypt('123'),
+            'rol' => 'Administrador',
+            'activo' => 'Si',
             'email'     => 'josefernandoperezgarcia98@gmail.com',
+        ]);
+        DB::table('Users')->insert([
+            'name'  => 'Liliana Sofía López Palomino',
+            'password'  => bcrypt('123'),
+            'rol' => 'Personal',
+            'activo' => 'No',
+            'email'     => 'lili@gmail.com',
         ]);
     }
 }
