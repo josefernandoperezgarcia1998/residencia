@@ -79,7 +79,7 @@ class ContactoController extends Controller
 
         try{
             $mensaje_seleccionado->delete();
-            return redirect()->route('contacto.index')->with('success', 'Paciente eliminado correctamente');
+            return redirect()->route('contacto.index')->with('success', 'Mensaje eliminado correctamente');
         } catch (\Illuminate\Database\QueryException $e){
             return redirect()->route('contacto.index')->with('error',$e->getMessage());
         }
