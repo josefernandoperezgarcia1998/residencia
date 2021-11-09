@@ -130,7 +130,7 @@
             @endif
             <div class="wrap-login100">
 
-                <form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
+                <form class="login100-form validate-form" method="POST" action="{{ route('autenticar') }}">
                     @csrf
 
                     <span class="login100-form-title p-b-43">
