@@ -17,25 +17,32 @@
             <p>Historial médico</p>
         </a>
     </li>
+    @if (Auth::user()->rol == 'Administrador')
     <li class="nav-item ">
         <a class="nav-link" href="{{ route('usuarios.index') }}"">
             <i class="material-icons">group</i>
             <p>Personal</p>
         </a>
     </li>
+    @endif
     <li class="nav-item ">
         <a class="nav-link" href="{{ route('contacto.index') }}">
             <i class="material-icons">question_answer</i>
             <p>Contacto</p>
         </a>
     </li>
-{{-- 
     <li class="nav-item ">
-        <a class="nav-link" href="./icons.html">
-            <i class="material-icons">bubble_chart</i>
-            <p>Icons</p>
+        <a class="nav-link" href="{{ route('logout') }}" onclick="event.preventDefault();
+            document.getElementById('logout-form').submit();">
+            <i class="material-icons">logout</i>
+            <p>Cerrar sesión</p>
         </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+        </form>
     </li>
+{{-- 
     <li class="nav-item ">
         <a class="nav-link" href="./map.html">
             <i class="material-icons">location_ons</i>
