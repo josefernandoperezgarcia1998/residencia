@@ -15,7 +15,8 @@ The above copyright notice and this permission notice shall be included in all c
 <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('fotos_estaticas/icon_logo_2.png') }}">
+    <link rel="shortcut icon" href="{{ asset('fotos_estaticas/logo_oficial_sin_fondo_en_orillas.png') }}"
+        type="image/x-icon">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>
         Centro Alternativo Homeopático
