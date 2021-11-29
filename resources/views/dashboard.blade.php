@@ -35,6 +35,18 @@ The above copyright notice and this permission notice shall be included in all c
             left: 55px;
         }
 
+        .card-buscador{
+            display: none;
+        }
+
+        @media (max-width: 991px){
+    
+        .card-buscador{
+            display: inline;
+        }
+}
+
+
     </style>
 </head>
 
@@ -70,6 +82,18 @@ The above copyright notice and this permission notice shall be included in all c
                     </button>
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <form class="form-inline ml-auto" action="{{ route('buscador') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group no-border">
+                                        <input type="text" class="form-control" name="cadena" placeholder="Ej. Pablo Pérez García"
+                                    </div>
+                                    <button type="submit" class="btn btn-just-icon btn-round">
+                                        <i class="material-icons">search</i>
+                                    </button>
+                                </form>
+                            </li>
+                            <div style="width: 50px;"></div>
                             {{ Auth::user()->name }}
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile"
@@ -111,6 +135,22 @@ The above copyright notice and this permission notice shall be included in all c
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
+
+                    <div class="card-buscador">
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-body">
+                                <h4 class="card-title">Buscar historial médico</h4>
+                                <form action="{{ route('buscador') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <label for="" class="card-text">Introduce el nombre del paciente</label>
+                                    <input type="search" class="form-control" name="cadena" placeholder="Ej. Pablo Pérez García"  autocomplete="off" spellcheck="false" role="combobox">    
+                                    <button type="submit" class="btn btn-dark" style="background-image: linear-gradient(
+                                        195deg,#4076ec,#1b73d8) !important;">Buscar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6">
                             <div class="card card-stats">
@@ -491,6 +531,10 @@ The above copyright notice and this permission notice shall be included in all c
 
             });
 
+        </script>
+
+        <script>
+            $('#myModal').modal(options)
         </script>
 </body>
 

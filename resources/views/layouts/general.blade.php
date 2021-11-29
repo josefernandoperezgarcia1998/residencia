@@ -70,6 +70,17 @@ The above copyright notice and this permission notice shall be included in all c
                     </button>
                     <div class="collapse navbar-collapse justify-content-end">
                         <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <form class="form-inline ml-auto" action="{{ route('buscador') }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="form-group no-border">
+                                        <input type="text" class="form-control" name="cadena" placeholder="Ej. Pablo Pérez García"
+                                    </div>
+                                    <button type="submit" class="btn btn-just-icon btn-round">
+                                        <i class="material-icons">search</i>
+                                    </button>
+                                </form>
+                            </li>
                             {{ Auth::user()->name }}
                             <li class="nav-item dropdown">
                                 <a class="nav-link" href="javascript:;" id="navbarDropdownProfile"
