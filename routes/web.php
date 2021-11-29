@@ -47,3 +47,12 @@ Route::resource('usuarios', App\Http\Controllers\UsuarioController::class)->name
 
 /* Ruta para verificar con AJAX si un correo ya existe ó no en el sistema */
 Route::post('/register/check', [App\Http\Controllers\UsuarioController::class, 'check'])->name('register.check');
+
+/* Ruta para buscar un paciente por medio de un input */
+Route::post('buscar', [App\Http\Controllers\BuscadorPacienteController::class, 'buscar'])->name('buscador');
+
+/* Ruta para ver el historial médico de un paciente por buscadort */
+Route::get('paciente_historial_buscador/{id}', [App\Http\Controllers\BuscadorPacienteController::class, 'historialPacienteBuscador'])->name('historial_buscador');
+
+/* Ruta para obtener un historial médico por id basado en la busqueda del buscador */
+Route::get('historial_medico/{id}', [App\Http\Controllers\HistorialMedicoController::class, 'show'])->name('historial_paciente');
