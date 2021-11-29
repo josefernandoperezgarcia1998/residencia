@@ -127,7 +127,7 @@
                     <th><strong class="green-letter">Estatura:</strong> {{$cita->paciente->estatura}}.</th>
                 </tr>
                 <tr>
-                    <th><strong class="green-letter" Peso:</strong> {{$cita->paciente->peso}} kg.</th> </tr> <tr>
+                    <th><strong class="green-letter">Peso:</strong> {{$cita->paciente->peso}} kg.</th> </tr> <tr>
                     <th><strong class="green-letter">Alergias:</strong> {{$cita->paciente->alergia}}.</th>
                 </tr>
             </table>
