@@ -35,9 +35,9 @@ Historial Médico
                         <div class="table-responsive">
                             <table class="table" id="citas">
                                 <thead class="text-primary">
-                                    <th>ID</th>
                                     <th>Nombre del paciente</th>
                                     <th>Padecimiento</th>
+                                    <th>Fecha</th>
                                     <th>Celular paciente</th>
                                     <th>Acciones</th>
                                 </thead>
@@ -87,9 +87,9 @@ Historial Médico
             "serverSide": true,
             "ajax": "{{ route('datatableHistorial') }}",
             "columns": [
-                {data: 'id',name: 'id'},
                 {data: 'pacienteNombre', name: 'pacienteNombre'},
                 {data: 'padecimiento',  name: 'padecimiento'},
+                {data: 'hora_cita',  name: 'hora_cita'},
                 {data: 'pacienteCelular', name: 'pacienteCelular'},
                 {data: 'btn'},
             ]
